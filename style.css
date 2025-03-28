@@ -25,8 +25,9 @@ body {
 }
 
 header{
+    margin-top: 7.5rem;
     padding-top: 5rem;
-    padding-bottom: 4rem;
+    padding-bottom: 7.5rem;
 
     display: flex;
     justify-content: center;
@@ -48,6 +49,8 @@ main {
     
     strong {
         color: var(--greyish-turquoise);
+        display: block;
+        margin-bottom: .6rem;
     }
 
     .input-box{
@@ -56,8 +59,6 @@ main {
         justify-content: space-between;
         background-color: var(--squeeze);
         padding: 0.6rem 1.8rem;
-        height: 4.8rem;
-        width: 31.1rem;
         border-radius: 5px;
 
         input {
@@ -71,7 +72,7 @@ main {
             color: var(--sherpa-blue);
         }
         input::placeholder {
-            color: var(--sherpa-blue);
+            color: var(--beetle-green);
         }
         &:has(input:focus) {
             outline: 2px solid var(--topaz);
@@ -94,6 +95,9 @@ main {
             padding: .6rem;
             border-radius: .5rem;
         }
+        .button-selected{
+            background-color: var(--topaz);
+        }
         input{
             background-color: var(--squeeze);
             color: var(--sherpa-blue);
@@ -107,6 +111,7 @@ main {
             border-radius: .5rem;
         }
         input::placeholder{
+            text-align: center;
             color: var(--beetle-green);
         }
         input:focus{
@@ -157,5 +162,49 @@ main {
 }
 
 @media(min-width: 920px){
-    
+
+    main {
+        width: 92rem;
+        display: flex;
+        gap: 4.8rem;
+        padding: 4.8rem;
+        margin-inline: auto;
+        border-radius: 2.5rem;
+
+        section {
+            width: 100%;
+        }
+        .info .tip div {
+            grid-template-columns: repeat(3,1fr);
+
+            button {
+                transition: .5s;
+            }
+            button:hover {
+                background-color: var(--topaz);
+                cursor: pointer;
+                transition: .5s;
+            }
+        }
+
+        input::-webkit-inner-spin-button,
+        input::-webkit-outer-spin-button{
+            display: none;
+        }
+
+        .results {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            strong {
+                font-size: 4.8rem;
+            }
+            p {
+                font-size: 1.6rem;
+            }
+            span {
+                font-size: 1.3rem;
+            }
+        }
+    }
 }

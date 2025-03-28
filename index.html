@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./images/favicon-32x32.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
     <title>Splitter - Tip Calculator</title>
 </head>
 <body>
@@ -25,11 +26,11 @@
             <div class="tip">
                 <strong>Select Tip %</strong>
                 <div>
-                    <button>5%</button>
-                    <button>10%</button>
-                    <button>15%</button>
-                    <button>25%</button>
-                    <button>50%</button>
+                    <button onclick="receiveTipValue(5)">5%</button>
+                    <button onclick="receiveTipValue(10)">10%</button>
+                    <button onclick="receiveTipValue(15)">15%</button>
+                    <button onclick="receiveTipValue(25)">25%</button>
+                    <button onclick="receiveTipValue(50)">50%</button>
                     <input type="number" id="custom-tip" placeholder="Custom">
                 </div>
             </div>
@@ -44,17 +45,19 @@
         </section>
 
         <section class="results">
-            <div class="amount">
-                <p>
-                    Tip Amount <br> <span>/ person</span>
-                </p>
-                <strong>$4.27</strong>
-            </div>
-            <div class="total">
-                <p>
-                    Total <br> <span>/ person</span>
-                </p>
-                <strong>$32.79</strong>
+            <div>
+                <div class="amount">
+                    <p>
+                        Tip Amount <br> <span>/ person</span>
+                    </p>
+                    <strong>$4.27</strong>
+                </div>
+                <div class="total">
+                    <p>
+                        Total <br> <span>/ person</span>
+                    </p>
+                    <strong>$32.79</strong>
+                </div>
             </div>
 
             <button>Reset</button>
