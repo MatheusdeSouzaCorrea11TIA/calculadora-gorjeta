@@ -26,11 +26,11 @@
             <div class="tip">
                 <strong>Select Tip %</strong>
                 <div>
-                    <button onclick="receiveTipValue(5)">5%</button>
-                    <button onclick="receiveTipValue(10)">10%</button>
-                    <button onclick="receiveTipValue(15)">15%</button>
-                    <button onclick="receiveTipValue(25)">25%</button>
-                    <button onclick="receiveTipValue(50)">50%</button>
+                    <button onclick="receiveTipValue(5)" id="button-5">5%</button>
+                    <button onclick="receiveTipValue(10)" id="button-10">10%</button>
+                    <button onclick="receiveTipValue(15)" id="button-15">15%</button>
+                    <button onclick="receiveTipValue(25)" id="button-25">25%</button>
+                    <button onclick="receiveTipValue(50)" id="button-50">50%</button>
                     <input type="number" id="custom-tip" placeholder="Custom">
                 </div>
             </div>
@@ -60,7 +60,7 @@
                 </div>
             </div>
 
-            <button>Reset</button>
+            <button onclick="reset()">Reset</button>
         </section>
     </main>
 </body>

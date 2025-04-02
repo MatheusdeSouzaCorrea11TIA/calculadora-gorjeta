@@ -1,20 +1,70 @@
 let bill = 0
 let tipPercentage = 0
-let people = 0
-let buttonSelected = 0
+let numberOfPeople = 0
+let buttonSelected = null
 
-let billInput = document.querySelector("#bill")
-billInput.addEventListener("input", () =>{
-    bill = billInput.valueAsNumber
-})
+function receiveBillValue() {
+    bill = document.querySelector("#bill").valueAsNumber
 
-function receiveTipValue(value){
-    tipPercentage = value / 100
+    calculateResults()
 }
 
-function calculate(){
-    let tipAmount = document.querySelector(".amount strong")
-    let totalText = document.querySelector(".amount strong")
-    let total = 0
-    tipAmount.innerHTML = `$${total}`
+function receiveNumberOfPeopleValue() {
+    numberOfPeople = document.querySelector("#people").valueAsNumber
+}
+
+function receiveTipPercentageValue(value) {
+    tipPercentage = value / 100
+
+    document.querySelector("#custom-tip").value = ""
+
+    if (buttonSelected !== null){
+        buttonSelected.classList.remove("button-selected")
+    }
+
+    buttonSelected = document.querySelector(`button-${value}`)
+    buttonSelected.classList.add("button-selected")
+
+    calculateResults()
+}
+
+function receiveCustomTipPercentageValue() {
+    tipPercentage = document.querySelector("#custom-tip").valueAsNumber
+
+    removeClassButtonSelected()
+    calculateResults()
+}
+
+function removeClassButtonSelected() {
+    if (buttonSelected !== null) {
+        buttonSelected.classList.remove("button-selected")
+        buttonSelected = null
+    }
+}
+
+function calculateResults() {
+    if (bill !== 0 && tipPercentage !== 0 && numberOfPeople !== 0){
+        let strongAmount = document.querySelector(".amount strong")
+        let tipAmountPerson = bill * tipPercentage / numberOfPeople
+        strongAmount.innerText = `$${tipAmountPerson.toFixed(2)}`
+
+        let strongTotal = document.querySelector(".total strong")
+        let totalPerson = (bill / numberOfPeople) * tipAmountPerson
+        strongTotal.innerText = `$${totalPerson.toFixed(2)}`
+    }
+}
+
+function reset() {
+    document.querySelector("#bill").value = ""
+    bill = 0
+
+    document.querySelector("#people").value = ""
+    numberOfPeople = 0
+    
+    document.querySelector("#custom-tip").value = ""
+    removeClassButtonSelected()
+    tipPercentage = 0
+
+    document.querySelector(".amount strong").innerText = "$0.00"
+    document.querySelector(".total strong").innerText = "$0.00"
 }
